@@ -1,3 +1,5 @@
+#Brittney Solorio
+
 '''List comprehensions provide a concise way to create lists. 
 
 It consists of brackets containing an expression followed by a for clause, then
@@ -41,7 +43,7 @@ numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 newlist = [int(pos) for pos in numbers if pos > 0]
 print(newlist)
 
-
+print()
 
 ## 2 create a list of integers which specify the length of each word in
 ## a sentence except for the word 'the'
@@ -52,7 +54,7 @@ words = sentence.split()
 intlist = [len(word) for word in words if word != "the"]
 print(intlist)
 
-
+print()
 ## Given dictionary is consisted of vehicles and their weights in kilograms. 
 ## Contruct a list of the names of vehicles with weight below 5000 kilograms. 
 ## In the same list comprehension make the key names all upper case.
@@ -62,23 +64,26 @@ dict={"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400,
 light_vehicles = [key.upper() for key, value in dict.items() if value < 5000]
 print(light_vehicles)
 
-
-
+print()
 ## Find all the numbers from 1 to 1000 that have a 4 in them
 find_fours = [num for num in range(1001) if '4' in str(num)]
 print(find_fours)
 
+print()
 ## count how many times the word 'the' appears in the text file - 'sometext.txt'
 myfile = open('sometext.txt', 'r')
-find_the = [word for word in myfile if word == "the"]
-print(find_the)
+readfile = myfile.read().split()
+find_the = [word for word in readfile if (word == "the" or word == "The")]
+print("""The word "the" is mentioned """ + str(len(find_the)) + " times.")
+
+print()
 
 ## Extract the numbers from the following phrase ##
 
-#phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " +
-#"event, with about 3 or 4 that were classifled as serious per event.'
+phrase = "In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " + "event, with about 3 or 4 that were classifled as serious per event."
 
-
+num = [int(num) for num in str.split(phrase) if num.isdigit()]
+print (num)
 
 
 

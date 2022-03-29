@@ -1,3 +1,5 @@
+#Brittney Solorio
+
 ''' 1)
 Write a Python program to filter a list of integers using Lambda. Go to the editor
 Original list of integers:
@@ -21,7 +23,7 @@ print(filtered_even)
 print("Odd numbers from the said list:")
 print(filtered_odd)
 
-
+print()
 ''' 2)
 find which days of the week have exactly 6 characters.
 '''
@@ -33,7 +35,7 @@ result = list(filter(lambda day: (len(day) == 6), weekdays))
 print(result)
 
 
-
+print()
 
 ''' 3)
 remove specific words from a given list 
@@ -62,7 +64,7 @@ print(remove_words)
 print("After removing the specified words from the said list:")
 print(new_list)
 
-
+print()
 
 ''' 4)
  remove all elements from a given list present in another list
@@ -83,6 +85,7 @@ result = list(filter(lambda elem: elem not in og_list2, og_list1))
 
 print(result)
 
+print()
 
 
 ''' 5)
@@ -106,13 +109,33 @@ print(search)
 search2 = list(filter(lambda sub: 'abc' in sub, og_list))
 print(search2)
 
+print()
 
 ''' 6)
 check whether a given string contains a capital letter, a lower case letter, a number and a minimum length of 8 characters.
 (This is like a password verification function, HINT: Python function 'any' may be useful)
 '''
 
+def password_checker(pw):
+    check =[
+        lambda pw: any(x.isupper() for x in pw),
+        lambda pw: any(x.islower() for x in pw),
+        lambda pw: any(x.isdigit() for x in pw),
+        lambda pw: len(pw) >= 8
+    ]
 
+    valid = [x for x in [i(pw) for i in check] if x != True]
+    
+    if not valid:
+        valid.append('Your password is set.') 
+    else:
+        valid.append('Invalid password, input a different one.')
+    return valid
+
+create_pw = str(input('Password: '))
+print(password_checker(create_pw))
+
+print()
 
 
 ''' 7)
